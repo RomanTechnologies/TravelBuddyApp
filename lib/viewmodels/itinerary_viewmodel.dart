@@ -5,10 +5,13 @@ import 'models/destination.dart';
 
 import 'models/user.dart';
 
+import 'services/firebase_service.dart';
+
 class ItineraryViewModel extends ChangeNotifier {
+  FirebaseService _firebaseService = FirebaseService();
   List<Itinerary> itineraries = [];
 
-  setUp() {
-    // Todo, set up logic for itinerary management
+  setUp() async {
+    // Todo, integrate with Firebase service to get user data and itineraries
   }
 }
