@@ -12,6 +12,7 @@ class DestinationViewModel extends ChangeNotifier {
   setUp() async {
     var response = await _apiService.getDestinations();
     destinations = response.map(Destination.fromJson).toList(as.List<Destination>);
+    // Updated to handle dynamic API data
     notifyListeners();
   }
 }
