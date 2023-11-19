@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 
 class APIService {
-  final string apiUrl = 'https://example.com/api';
+  final string apiUrl = 'https://travelapi.example.com/api';
 
   Future<List<Dynamic>> getDestinations() async {
     var response = await Http.get(Uri.parse(apiUrl + '/destinations'));
