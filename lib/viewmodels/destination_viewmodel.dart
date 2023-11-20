@@ -4,15 +4,32 @@ import 'models/destination.dart';
 import 'services/firebase_service.dart';
 import '../services\/api_service.dart';
 
-class DestinationViewModel extends ChangeNotifier {
-  FirebaseService _firebaseService = FirebaseService();
-  APIService _apiService = APIService();
-  List<Destination> destinations = [];
+import 'viewmodels/base_viewmodel.dart';
 
-  setUp() async {
-    var response = await _apiService.getDestinations();
-    destinations = response.map(Destination.fromJson).toList(as.List<Destination>);
-    // Updated to handle dynamic API data
-    notifyListeners();
+import 'utils/logger.dart';
+
+import 'utils/enums.dart';
+
+/**
+ * DestinationViewModel that interacts with FirebaseService and APIService to fetch and update destination data
+ */
+class DestinationViewModel extends BaseViewModel {
+  FirebaseService _firebaseService;
+  APIService _apiService;
+  List<Destination> destinations;
+
+  DestinationViewModel() {
+    _firebaseService = FirebaseService();
+    _apiService = APIService();
+  }
+
+  // Initializes the viewModel by interacting with FirebaseService and APIService to fetch destination data
+  void initVoid()async {
+    try {
+      var destinationsData = await _firebaseService.getDestinations();
+      // Update the destination data and notify listeners
+    } catch (e) {
+      logger.e(e.toString());
+    }
   }
 }
