@@ -8,8 +8,8 @@ void main() {
     final itineraryVM = ItineraryViewModel();
     test('Initialization Test for ItineraryViewModel',() {
       expect(itineraryVM, isNot(null));
-      expect(itineraryVN.itineraries, isAlist);
-      expect(itineraryVN.itineraries.length, isGreaterThan(0));
-    });
+      expect(itineraryVM.itineraries, isAList);
+      expect(itineraryVM.itineraries.length, isGreaterThan(0));
   });
+ });
 }
